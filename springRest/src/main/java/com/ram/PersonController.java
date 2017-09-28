@@ -1,6 +1,8 @@
 package com.ram;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,9 +15,10 @@ public class PersonController {
 	private IPersonService personService;
 	
 	@RequestMapping("/person")
-	public Person getPersonDetail(@RequestParam(value = "id",required = false,
+	public PersonDto getPersonDetail(@RequestParam(value = "id",required = false,
 	                                                    defaultValue = "0") Integer id) {
-		Person p = personService.getPersonDetail(id);
+		PersonDto p = personService.getPersonDetail(id);
 		return p;
+	}	
 	}
-}
+	

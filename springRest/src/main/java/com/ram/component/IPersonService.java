@@ -1,7 +1,9 @@
 package com.ram.component;
 
-import com.ram.Person;
+import com.ram.Address;
+import com.ram.PersonDto;
 
 public interface IPersonService {
-  public Person getPersonDetail(Integer id);
+  public PersonDto getPersonDetail(Integer id);
+
 }

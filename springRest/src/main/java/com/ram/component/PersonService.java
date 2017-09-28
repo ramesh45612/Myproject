@@ -1,41 +1,36 @@
 package com.ram.component;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ram.Account;
 import com.ram.Address;
-import com.ram.Person;
+import com.ram.PersonDto;
 
-@Component
+@Service
 public class PersonService implements IPersonService {
+	
+	
 	@Override
-	public Person getPersonDetail(Integer id){
-		Person p = new Person();
-		p.setId(id);
-		p.setName("Ram");
-	Address addr= new Address();
-	addr.setCity("Hyd");
-	addr.setState("Telangana");
-	p.setAddress(addr);
+	public PersonDto getPersonDetail(Integer id) {
 	
-	Address addr1= new Address();
-	addr1.setCity("ListHyd1");
-	addr1.setState("ListTelangana1");
-
-	Address addr2= new Address();
-	addr2.setCity("ListHyd2");
-	addr2.setState("ListTelangana2");
-
-	List<Address> list = new ArrayList<Address>();
-	list.add(addr1);
-	list.add(addr2);
-	
-	p.setList(list);
-	
-	String abc[]= {"Male","Female","Others"};
-	p.setGender(abc);
+	ObjectMapper objectMapper= new ObjectMapper();
+	String accountJsonData="{\"id\":\"1\",\"name\":\"Ram\",\"address\":[{\"city\":\"Sec\",\"state\":\"Telangana\"},{\"city\":\"Hyd\",\"state\":\"Telangana\"}]}";
+		Account accountObj=null;
+		try {
+			accountObj=objectMapper.readValue(accountJsonData, Account.class);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		PersonDto p = new PersonDto();
+		p.setId(accountObj.getId());
+		p.setName(accountObj.getName());
+		p.setAddress(accountObj.getAddress());
 		return p;
 	}
 }

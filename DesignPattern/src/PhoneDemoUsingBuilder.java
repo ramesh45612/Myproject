@@ -65,6 +65,15 @@ public class PhoneDemoUsingBuilder {
 		pb.setScreenSize(5);	
 		Phone phone=pb.getPhone();
 		System.out.println(phone);
+		
+		Phone pb1 = new PhoneBuilder()
+		.setBattery("bat")
+		.setCamera("cam")
+		.setOs("os")
+		.setScreenSize(12)
+		.getPhone();
+		
+		System.out.println(pb1);
 	}
 }
 
