@@ -1,0 +1,6 @@
+Write a Producer program to read numbers form a file and populate this number in to a Data Structure in the form a java object.  Also write a consumer program that will read the number from the data structure and calculate the sum of numbers and write it into another file.
+Write test program to demonstrate this Producer consumer program. Please follow proper Java coding stander while you code.
+
+Use multi-threading if applicable
+
+View input.txt and output.txt for sample input output data
