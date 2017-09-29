@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+  
+ 
+<bean id="id1" class="com.ram.di.Car">
+ 
+<property name="fuelType" value="Diesel" />
+<property name="maxSpeed" value="100" />
+ 
+</bean>
+ 
+<bean id="id2" class="com.ram.di.Bus">
+<property name="maxSpeed" value="80" />
+</bean>
+ 
+ 
+<bean id="id3" class="com.ram.di.Travel">
+ 
+<property name="v">
+<ref parent="id2" />
+</property>
+ 
+</bean>
+   
+</beans>

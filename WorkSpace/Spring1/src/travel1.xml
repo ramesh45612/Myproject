@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+  
+ 
+<bean id="id1" class="com.ram.di.Car1">
+ 
+<property name="fuelType" value="DieselCar" />
+<property name="maxSpeed" value="100" />
+ 
+</bean>
+ 
+<bean id="id2" class="com.ram.di.Bus1">
+<property name="maxSpeed" value="80" />
+</bean>
+ 
+ 
+<bean id="id3" class="com.ram.di.Travel1">
+ 
+<property name="v" ref="id1" />
+ 
+</bean>
+
+<!-- 
+below for constructor based dependancy injection start -->
+
+<bean id="id4" class="com.ram.di.Car2">
+ 
+<constructor-arg  value="DieselCar" />
+<constructor-arg  value="100" />
+ 
+</bean>
+ 
+<bean id="id5" class="com.ram.di.Bus2">
+<!-- <constructor-arg name="maxSpeed" value="80" /> like this also we can-->
+<constructor-arg  value="80" type="int" />
+</bean>
+ 
+ 
+<bean id="id6" class="com.ram.di.Travel2">
+ 
+<constructor-arg ref="id4" />
+ 
+</bean>
+   
+<!-- End -->
+
+
+<!-- below for SetDi.java  start-->
+<bean id="set" class ="Welcome">
+<constructor-arg>
+<!-- incase of setter based dependancy injection -->
+<!-- <property name="studentdata"> -->
+<set>
+<value>Ramesh</value>
+<value>Ram</value>
+<value>Anvi</value>
+<value>Laasya</value>
+<value>Venkanna</value>
+<value>Ramesh</value>
+</set>
+<!-- incase of setter based dependancy -->
+<!-- </property> -->
+</constructor-arg>
+</bean>
+
+<!-- End-->
+
+<!-- below for listDi.java  start-->
+
+
+
+
+<bean id ="ans1" class ="Answer">
+<constructor-arg value="1"/>
+<constructor-arg value="java is object oriented programing language"/>
+<constructor-arg value="Sankoji"/>
+</bean>
+
+<bean id ="ans2" class ="Answer">
+<constructor-arg value="2"/>
+<constructor-arg value="Java is multithreaded programing language"/>
+<constructor-arg value="Ramesh"/>
+</bean>
+<bean name="question" class="Question">
+<constructor-arg  value="1"/>
+<constructor-arg  value="Quesion"/>
+<constructor-arg>
+<list>
+<ref bean="ans1"/>
+<ref bean ="ans2"/>
+</list>
+</constructor-arg>
+
+</bean>
+
+<!-- below for listDi.java  End-->
+</beans>

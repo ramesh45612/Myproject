@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+			"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+ <beans>
+<bean id="one" class="One">
+
+
+<constructor-arg>
+<list>
+<value>1</value>
+<value>2</value>
+<value>3</value>
+<value>4</value>
+</list>
+</constructor-arg>
+
+ 
+ </bean>
+</beans>

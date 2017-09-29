@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+  
+<bean id="address" class="DynamicAddress"/>
+<bean id ="emp" class="DynamicEmp" >
+<!-- one to one relationship -->
+<property name="address" ref="address"/>
+
+<!--  one to many relationship -->
+
+<property name="maddr">
+<list>
+<ref bean=" temp"/>
+<ref bean="perm"/>
+</list>
+</property>
+ 
+ </bean>
+
+<bean id="temp" class="DynamicAddress">
+<property name="label" value="Temporary Address"/>
+</bean>
+<bean id="perm" class="DynamicAddress">
+ <property name="label" value="Permanent Address"/>
+</bean>
+</beans>
