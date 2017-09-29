@@ -38,10 +38,14 @@ class VehicleFactory{
 public class FactoryPatternExample {
 	public static void main(String[] args) {
 		/*without using factory pattern*/
+		System.out.println("without using factory pattern");
 		Vehicle bus = new Bus();
 		bus.drive();	//bus
 		Vehicle bike = new Bike();
 		bike.drive();	//bike
+		
+		System.out.println("using factory pattern");
+
 
 		//above logic maintained by third party  
 		VehicleFactory vf= new VehicleFactory();
@@ -51,6 +55,8 @@ public class FactoryPatternExample {
 		System.out.println("created below object using factory pattern");
 		Vehicle vehicle=vf.getInstance("bus");
 		vehicle.drive();
+		
+		
 	}
 
 }
