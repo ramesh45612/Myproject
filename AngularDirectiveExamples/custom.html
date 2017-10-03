@@ -1,0 +1,24 @@
+<simple-dir />
+<br><br><br>
+<!--   <userinfo user="ram"></userinfo> -->
+<h4>From Shared Scope<br></h4>
+<shared-scope></shared-scope>
+<br>
+<h4>from Isolated Scope:</h4>
+<isolated-scope></isolated-scope><br>
+<h4>Pass data into isolated directives@</h4>
+@  Used to pass a string value into the directive<br>
+<isolated-scope1 first="{{firstName}}"></isolated-scope1><br>
+
+<isolated-scope1 first="firstName"></isolated-scope1><br>
+<h4>Pass data into isolated directives=</h4>
+=    Used to create a two-way binding to an object that is passed into the directive<br>
+<isolated-scope2 customer="customer"></isolated-scope2><br>
+Notice that with the = local scope property you dont pass {/{ customer }/} as with @. 
+You instead pass the name of the property directly. In this example 
+the customer object passed into the directive’s customer local scope property comes from the controller shown earlier<br><br>
+<h4>Pass data into isolated directives&</h4>
+&    Allows an external function to be passed into the directive and invoked<br>
+<isolated-scope3 customer="customer" action="changeData()"></isolated-scope3><br><br>
+<h4>Directive using = and &</h4>
+<emp-dir data="customer"  action="changeData()"></emp-dir>

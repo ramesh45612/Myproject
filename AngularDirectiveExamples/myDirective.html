@@ -1,0 +1,57 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script src="myDirectiveController.js"></script>
+
+<message x="Hi" y="Ramesh"/><br>
+<message x="{{a}}" y="{{b}}"/><br>
+
+<message1 m="member variable" n="member"></message1><br>
+<br><br>
+==================<br>
+Directive instance1 <br>
+===================<br>
+<message3 employee="emp"></message3><br>
+
+==================<br>
+Directive instance2 <br>
+===================<br>
+no need to bind like {{/emp2}/}<br>
+<message3 employee="emp2"></message3><br><br>
+
+below from message4<br>
+
+<message4 emp-data="emp"></message4><br>
+
+html Check how 2way binding works for =<input type="text" data-ng-model="emp.name"/><br>
+
+<button ng-click="sumFromController(10,20)">Sum</button>
+
+<br><br>
+
+<message5 ext-sum="sumFromController"></message5>
+
+ext-sum is an attribute  which will defination of sum from parent(Controller) means just sending whole function to directive<br>
+whole sumFromController defination is assigned to member called extSum of directive<br>
+sending whole defination as parameter 
+<br><br>
+
+Note: select div  and type this in console aangular.element($0).scope() --> to debug directives
+<br>
+below is Transclude example<br>
+
+<message6>this content won't be display until use transclude</message6>
+
+
+<message7>inner message used transclude</message7>
+
+
+<!-- first compile directives either custom or pre defined,  compile process  only once, during the compile no scope
+
+link next phase after compilation
+
+once link completed then only render process will begin
+ -->
+ 
+<namer first="Thirumala Thirupathi" last="Ramesh"></namer>
+<namer first="First " last="Ramesh"></namer><br>
+<student details = "Mahesh"></student>  
