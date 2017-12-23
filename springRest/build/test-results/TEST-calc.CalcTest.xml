@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="calc.CalcTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2017-12-23T05:59:47" hostname="Ramesh-PC" time="0.046">
+  <properties/>
+  <testcase name="testAdd" classname="calc.CalcTest" time="0.038"/>
+  <testcase name="testSub" classname="calc.CalcTest" time="0.0"/>
+  <testcase name="testCube" classname="calc.CalcTest" time="0.001"/>
+  <testcase name="withoutMockAdd" classname="calc.CalcTest" time="0.0"/>
+  <testcase name="testSquare" classname="calc.CalcTest" time="0.001"/>
+  <system-out><![CDATA[test result	100
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
