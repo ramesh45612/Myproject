@@ -1,5 +1,5 @@
-app.controller("searchController", ["SearchService", "$scope","uiGridExporterService", "uiGridExporterConstants", "$window",
-	   function(searchService, $scope, uiGridExporterService, uiGridExporterConstants, $window) {
+app.controller("searchController", ["SearchService", "$scope","uiGridExporterService", "uiGridExporterConstants",
+	   function(searchService, $scope, uiGridExporterService, uiGridExporterConstants) {
            var vm = this;
            
          /*  vm.searchCriteria = function(){
@@ -25,24 +25,12 @@ app.controller("searchController", ["SearchService", "$scope","uiGridExporterSer
                     console.log(errorResponse);
                 });
            }
-           
-           vm.exportExcel = function(){
-        	   $window.open("http://localhost:8075/springRest/download?seachCriteria="+JSON.stringify(vm.searchCriteria));
-           }
            //grid 
            vm.exportCsv = function() {
-        	   $scope.details= [];
-        	   $scope.details.push({accountNumber:"123",firstName:"cusot",lastName:"cuuuwhat an idea"},
-        			   {accountNumber:"123",firstName:"cusot",lastName:"cuuuwhat an idea"},
-        			   {accountNumber:"123",firstName:"cusot",lastName:"cuuuwhat an idea"},
-        			   {accountNumber:"123",firstName:"cusot",lastName:"cuuuwhat an idea"},
-        			   {accountNumber:"123",firstName:"cusot",lastName:"cuuuwhat an idea"},
-        			   {accountNumber:"123",firstName:"cusot",lastName:"cuuuwhat an idea"},
-        			   {accountNumber:"123",firstName:"cusot",lastName:"cuuuwhat an idea"});
-        	   var grid = $scope.gridApi.grid;
-             //  $scope.gridApi.grid.options.data={accountNumber:"123",firstName:"cusot",lastName:"cuuu"};
-               //$scope.gridApi.grid.rows=[{accountNumber:"qq",firstName:"cusqqot",lastName:"cuuu"},{accountNumber:"12qq3",firstName:"cusot",lastName:"cuuu"}];
-              
+        	   
+               var grid = $scope.gridApi.grid;
+               $scope.gridApi.grid.options.data={accountNumber:"123",firstName:"cusot",lastName:"cuuu"};
+               $scope.gridApi.grid.rows=[{accountNumber:"qq",firstName:"cusqqot",lastName:"cuuu"},{accountNumber:"12qq3",firstName:"cusot",lastName:"cuuu"}];
                var rowTypes = uiGridExporterConstants.ALL;
                var colTypes = uiGridExporterConstants.ALL;
                uiGridExporterService.csvExport(grid, rowTypes, colTypes);
@@ -51,51 +39,40 @@ app.controller("searchController", ["SearchService", "$scope","uiGridExporterSer
            
            $scope.gridOptions = { data : 'details',
         		   enableGridMenu: true,
+        		   exporterCsvFilename: 'myFile.csv',
         		   multiselect:true,
-        		   //column
-        		   enableColumnMenus: false,
-
-        		   //pagination
-        		  //  enablePaginationControls: true,
-        		    paginationPageSizes: [5, 10, 15],
-        		    paginationPageSize: 5,
-
-        		    //exporter
-        		    exporterMenuCsv: true,
+        		   exporterMenuCsv: true,
         		    exporterMenuPdf: false, //to remove pdf
-        		    exporterCsvFilename: 'myFile.csv',
-        		    
-        		    //custom export
-        		    onRegisterApi: function(gridApi){
+        		   enablePaginationControls: false,
+        		   paginationPageSizes: [5, 10, 15],
+        		      paginationPageSize: 5,
+        		      'exporterCsvFilename' : 'clarification-status.csv',
+        	            exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link-location")),
+        	            onRegisterApi: function(gridApi){
         	            	$scope.gridApi = gridApi;
+
         	            },
         	            
         	            gridMenuCustomItems: [{
-        	                title: 'Export to Excel',
+        	                title: 'CSV Export (Filtered & Paged Grid)',
         	                action: function() {
         	              //    $scope.export('csv');
-        	                  //vm.exportCsv();
-        	                	 // window.open("localhost:8075/springRest/download");
-        	                	 vm.exportExcel();
-        	              
+        	                  vm.exportCsv();
         	                }
         	              }],
-        	              
-        	              exporterAllDataFn : function () {
-        	            	  alert("wokkkkkk");
-        	              }
         		      
         	              /*exporterAllDataFn : function () {
         	            	  alert("wokinnnn");
         	            	   return $http.get('/data/100.json')
         	            	 },
         	              */
+        		   //   enableColumnMenus: false
         		      
+        		      /*onRegisterApi: function (gridApi) {
+                       $scope.gridApi = gridApi;
+                   },*/
            };
            
-           vm.addRow = function() {
-        	    $scope.details.push({accountNumber:"123",firstName:"cusot",lastName:"cuuu"});
-        	  };
    }
    ])
    

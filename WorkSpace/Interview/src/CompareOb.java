@@ -11,12 +11,19 @@ public class CompareOb {
 		else b=false;
 		return b;
 	}
+	
+	@Override
+	public int hashCode() {
+	    // TODO Auto-generated method stub
+	    return name.hashCode();
+	}
 		public static void main(String[] args) {
 		
 			CompareOb t1= new CompareOb("sankoji");
 			CompareOb  t2=new CompareOb("sankoji");
 			System.out.println(t1.equals(t2));
 			
+			System.out.println(t1==t2);
 	}
 
 }

@@ -20,7 +20,13 @@ class Test
 	@Override
 	public int hashCode() {
 	return name.hashCode();
+	//    return 1;
 			}
+	
+	@Override
+	public String toString() {
+	    return this.name;
+	}
 	
 }
 public class TestEqualsDemo {
@@ -33,6 +39,11 @@ System.out.println("s1 equals s2\t"+s1.equals(s2));
 System.out.println("s1 HashCode\t"+s1.hashCode());
 System.out.println("s2 HashCode\t"+s2.hashCode());
 
+System.out.println(s1.hashCode()==s2.hashCode());
+
+System.out.println(s1);
+System.out.println(s2);
+System.out.println(s1==s2);
 
 	}
 
