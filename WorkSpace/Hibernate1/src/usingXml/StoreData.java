@@ -1,4 +1,4 @@
-package Ram;
+package usingXml;
 
 import org.hibernate.Session;  
 import org.hibernate.SessionFactory;  
@@ -11,11 +11,11 @@ public static void main(String[] args) {
       
     //creating configuration object  using xml file mapping 
     /*Configuration cfg=new Configuration();  
-    cfg.configure("/Resource/hibernate.cfg.xml");//populates the data of the configuration file  
+    cfg.configure("/usingXml/hibernate.cfg.xml");//populates the data of the configuration file  
     */ 
 	//using annotations
 	AnnotationConfiguration cfg= new AnnotationConfiguration();
-	cfg.configure("/Resource/hibernateAnnotations.cfg.xml");
+	cfg.configure("usingXml/hibernate.cfg.xml");
     //creating seession factory object  
     SessionFactory sf=cfg.buildSessionFactory();  
       
@@ -33,8 +33,6 @@ public static void main(String[] args) {
       
     t.commit();//transaction is committed  
     session.close();  
-      
     System.out.println("successfully saved");  
-      
 }  
 }  

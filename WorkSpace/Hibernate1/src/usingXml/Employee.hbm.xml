@@ -5,7 +5,7 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
  <hibernate-mapping>  
-  <class name="Ram.Employee" table="emp">  
+  <class name="usingXml.Employee" table="emp">  
     <id name="id">  
      <generator class="hilo"></generator>  
     </id>  

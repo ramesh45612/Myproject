@@ -1,4 +1,4 @@
-package Ann;
+package usingAnnotation;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,6 +37,4 @@ public class EmpUsingAnnotation {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-
 }
