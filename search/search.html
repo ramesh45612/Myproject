@@ -1,0 +1,43 @@
+
+<div class="container">
+	<form class="form-horizontal" name="searchForm" data-ng-submit="search.fnSubmit(searchForm)">
+	<table class="table table-striped">
+		<tr>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		</tr>
+		<tr>
+			<td>Account Number</td>
+			<td>Equals</td>
+			<td><input type ="text" class="form-control"  data-ng-model="search.searchCriteria.accountNumber.criteria"></td>
+		</tr>
+		<tr>
+			<td>First Namer</td>
+			<td>Equals</td>
+			<td><input type ="text" class="form-control" data-ng-model="search.searchCriteria.firstName.criteria"></td>
+		</tr>
+		<tr>
+			<td>Last Name</td>
+			<td>Equals</td>
+			<td><input type ="text" class="form-control"  data-ng-model="search.searchCriteria.lastNameName.criteria"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2"><input type ="submit" value ="Submit"> <input type="reset" value ="Cancel"></td>
+		</tr> 
+	</table>
+</form>
+
+
+ <!-- <div data-ui-grid="{ data:search.details }"  data-ui-grid-exporter class="grid" ></div> -->
+ 
+ <div data-ui-grid="gridOptions"  data-ui-grid-exporter  data-ui-grid-pagination class="grid" ></div>
+
+<button data-ng-click="search.exportCsv()">export11</button>
+<button data-ng-click="search.addRow()">Add Row</button>
+<button data-ng-click="search.exportExcel()">exporttoExcel</button>
+
+<!-- <a href="http://localhost:8075/springRest/download">anchor export</a>
+</div>
+ -->
