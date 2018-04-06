@@ -9,7 +9,7 @@ class A
 	}
 }
 
-class B
+class BA
 
 {
 	
@@ -30,7 +30,7 @@ public class ObjCom1 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		B ob = new B();
+		BA ob = new BA();
 		ob.methodTwo();
 
 	}

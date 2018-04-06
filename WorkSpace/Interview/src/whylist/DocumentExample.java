@@ -31,7 +31,7 @@ public class DocumentExample {
      */
     public static void main(String[] args) {
         Employee ob = new EmployeeImpl();
-        ob.
+     //   ob.
 
     }
 

@@ -1,7 +1,7 @@
 package Core;
 
 
-strictfp class B
+strictfp class BB
 {
 	
 }
