@@ -6,9 +6,13 @@ interface in1
 }
 
 
-public class Inter  {
+public class Inter  implements in1 {
 	public static void main(String[] args) {
-		System.out.println("name");
+	    /*name ="you can't change";
+	   above meaning is in1.name="you can't change";
+	    */
+	    String name ="you can change - its different type";
+		System.out.println(name);
 	}
 
 }
